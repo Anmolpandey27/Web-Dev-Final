@@ -1,23 +1,17 @@
-
 var errors = 6;
 var cardList = [
     "1","2","3","4","5","6","7","8","9","10"
 ]
-
-
 var cardSet;
 var board = [];
 var rows = 5;
 var columns =4;
-
 var card1Selected;
 var card2Selected;
-
 window.onload = function() {
     shuffleCards();
     startGame();
 }
-
 function shuffleCards() {
     cardSet = cardList.concat(cardList);
     console.log(cardSet);
@@ -29,7 +23,6 @@ function shuffleCards() {
     }
     console.log(cardSet);
 }
-
 function startGame() {
     for (let r = 0; r < rows; r++) {
         let row = [];
@@ -46,11 +39,9 @@ function startGame() {
         }
         board.push(row);
     }
-
     console.log(board);
     setTimeout(hideCards, 1000);
 }
-
 function hideCards() {
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
@@ -59,9 +50,7 @@ function hideCards() {
         }
     }
 }
-
 function selectCard() {
-
     if (this.src.includes("back")) {
         if (!card1Selected) {
             card1Selected = this;
@@ -85,7 +74,6 @@ function selectCard() {
     }
 
 }
-
 function update() {
     if (card1Selected.src != card2Selected.src) {
         card1Selected.src = "back.jpg";
@@ -101,7 +89,6 @@ function update() {
         a.innerText=6;
         alert("You Lose the game \n Press OK to Play Again");
     }
-
     card1Selected = null;
     card2Selected = null;
 }
